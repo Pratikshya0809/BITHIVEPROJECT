@@ -22,6 +22,12 @@ class LoginSystem:
         
         self.username = StringVar()
         self.password = StringVar()
+
+        backgroundImage = Image.open(r"C:\Users\ASUS\OneDrive\Documents\python03\PRESENTATION\bg copy.jpg")
+        backgroundImage = ImageTk.PhotoImage(backgroundImage)
+        bgLabel = Label(self.root, image=backgroundImage)
+        bgLabel.place(x=0,y=0,relwidth=1,relheight=1) 
+  
         
         self.laptop_image = PhotoImage(file="C:/Users/ASUS/OneDrive/Documents/python03/PRESENTATION/ultra.png")
         Label(self.root, image=self.laptop_image, bd=0).place(x=300, y=100, width=520, height=500)
@@ -42,12 +48,17 @@ class LoginSystem:
     def login(self):
         if self.username.get() == "" or self.password.get() == "":
             messagebox.showerror("Error", "All fields are required", parent=self.root)
-        elif self.username.get() != "aditya" or self.password.get() != "12345":
+        elif self.username.get() != "BITHIVE" or self.password.get() != "12345":
             messagebox.showerror("Error", "Invalid Username or Password\nTry again", parent=self.root)
         else:
             self.root.destroy()
             root = Tk()
             IMS(root)
             root.mainloop()
+
+root = Tk()
+LoginSystem(root)
+root.mainloop()
+
 
 
